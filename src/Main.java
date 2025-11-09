@@ -1,11 +1,13 @@
 public class Main {
     public static void main(String[] args) {
+
         System.out.println("mississippi:");
         WordMatch game1 = new WordMatch("mississippi");
         System.out.println(game1.scoreGuess("i"));
         System.out.println(game1.scoreGuess("iss"));
         System.out.println(game1.scoreGuess("issipp"));
         System.out.println(game1.scoreGuess("mississippi"));
+
         System.out.println("aaaabb:");
         WordMatch game2 = new WordMatch("aaaabb");
         System.out.println(game2.scoreGuess("a"));
@@ -13,6 +15,7 @@ public class Main {
         System.out.println(game2.scoreGuess("aaa"));
         System.out.println(game2.scoreGuess("aabb"));
         System.out.println(game2.scoreGuess("c"));
+
         System.out.println("Concatenation:");
         WordMatch game = new WordMatch("Concatenation");
         System.out.println(game.scoreGuess("ten"));
