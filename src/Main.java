@@ -1,5 +1,10 @@
+import java.io.FileNotFoundException;
+import java.io.File;
+import java.util.Scanner;
+
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws FileNotFoundException {
+        WordMatch ggame;
 
         System.out.println("mississippi:");
         WordMatch game1 = new WordMatch("mississippi");
@@ -24,5 +29,24 @@ public class Main {
         System.out.println(game.scoreGuess("con"));
         System.out.println(game.scoreGuess("cat"));
         System.out.println(game.findBetterGuess("con", "cat"));
+
+        System.out.println("Challenge:");
+        System.out.println(read());
+
+    }
+    public static int read() throws FileNotFoundException{
+        int totScore = 0;
+        File guessesFile = new File("Guesses.txt");
+        Scanner guessesScan = new Scanner(guessesFile);
+        while (guessesScan.hasNextLine()){
+            String word = guessesScan.next();
+            String fisrtGuess = guessesScan.next();
+            String secondGuess = guessesScan.next();
+            WordMatch game = new WordMatch(word);
+            String betterGuess = game.findBetterGuess(fisrtGuess, secondGuess);
+            int scoreOfBetterGuesses = game.scoreGuess(betterGuess);
+            totScore += scoreOfBetterGuesses;
+        }
+        return totScore;
     }
 }
